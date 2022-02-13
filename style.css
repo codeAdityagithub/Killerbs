@@ -113,51 +113,44 @@ body{
     right: 0px;
     background-image: url(./assets/slideshow/1.png);
     animation-name: slide;
-    animation-duration: 52s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite ;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
     background-size: 100% 100%;
-    animation-play-state: running;
 }
 @keyframes slide{
-    7.692%{
+    0%{
         background-image: url(./assets/slideshow/1.png);
     }
-    15.384%{
+    10%{
         background-image: url(./assets/slideshow/2.png);
     }
-    23.076%{
+    20%{
         background-image: url(./assets/slideshow/3.png);
     }
-    30.768%{
+    30%{
         background-image: url(./assets/slideshow/4.png);
     }
-    38.46%{
+    40%{
         background-image: url(./assets/slideshow/5.png);
     }
-    46.152%{
+    50%{
         background-image: url(./assets/slideshow/6.png);
     }
-    53.844%{
+    60%{
         background-image: url(./assets/slideshow/7.png);
     }
-    61.536%{
+    70%{
         background-image: url(./assets/slideshow/8.png);
     }
-    69.228%{
+    80%{
         background-image: url(./assets/slideshow/9.png);
     }
-    76.92%{
+    90%{
         background-image: url(./assets/slideshow/10.png);
     }
-    84.612%{
-        background-image: url(./assets/slideshow/11.png);
-    }
-    92.304%{
-        background-image: url(./assets/slideshow/12.png);
-    }
     100%{
-        background-image: url(./assets/slideshow/13.png);
+        background-image: url(./assets/slideshow/1.png);
     }
 }
 
