@@ -5,7 +5,7 @@
     font-family:sans-serif;
 }
 body{
-    background-color: rgba(255, 255, 255, 0.767);
+    background-color: rgb(255, 255, 255);
 }
 
 .nav{
@@ -15,6 +15,13 @@ body{
     position:static;
     flex-direction: row;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .logo{
@@ -32,11 +39,11 @@ body{
     margin: 5px 10px 5px 10px;
 }
 .nav ul li{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 5px;
     margin: 2px 5px 2px 5px;
     transition: 0.5s;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 .nav ul li:hover{
     background-color: rgb(235, 235, 235);
@@ -315,7 +322,7 @@ body{
         /* flex-wrap: wrap; */
     }
     .nav ul li{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     .logo{
         width: 40px;
