@@ -8,10 +8,44 @@
     <title>Killer Brawl Stars</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/8ffa5a7354.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="navbar.css">
 </head>
 
 <body>
-    <div class="nav">
+    <div class="navigation">
+        <div class="menutoggle"></div>
+        <ul>
+            <div id="killer">
+                <span>
+                    <img src="./assets/KG.png" alt="Killer-BS" class="logo"><p>Killer-Brawl Stars</p>
+                </span>
+            </div>
+            <li class="list active">
+                <span class="icon" style="--clr:rgb(64, 255, 64);"><a href="#home"><ion-icon name="home-outline"></ion-icon></a></span>
+                <span><a href="#home" class="navlink">Home</a></span>
+            </li>
+            <li class="list">
+                <span class="icon" style="--clr:rgb(255, 59, 59);"><a href="#videos"><ion-icon name="videocam-outline"></ion-icon></a></span>
+                <span><a href="#videos" class="navlink">Top Videos</a></span>
+            </li>
+            <li class="list">
+                <span class="icon" style="--clr:rgb(219, 205, 0);" ><a href="#testimonials"><ion-icon name="happy-outline"></ion-icon></a></span>
+                <span><a href="#testimonials" class="navlink">Testimonials</a></span>
+            </li>
+            <li class="list">
+                <span class="icon"  style="--clr:rgb(0, 108, 250);"><a href="#footer"><ion-icon name="link"></ion-icon></a></span>
+                <span><a href="#footer" class="navlink">Links</a></span>
+            </li>
+            <li id="dark" class="open">
+                <span class="icon" style="--clr:rgb(1, 28, 63);" onclick="toggleDark()"><ion-icon name="moon-outline"></ion-icon></span>
+                <span class="darktoggle open" onclick="toggleDark()">
+                    <span></span>
+                </span>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- <div class="nav">
         <a href="https://codeadityagithub.github.io/Killerbs/"><img src="./assets/KG.png" alt="Killer-BS" class="logo"></a>
         <ul>
             <a href="#home">
@@ -27,10 +61,10 @@
                 <li>Links</li>
             </a>
         </ul>
-    </div>
+    </div> -->
     <div class="container">
         <div id="home">
-            <img src="./assets/banner2.jpg" alt="">
+            <!-- <img src="./assets/banner2.jpg" alt=""> -->
 
             <p><strong>Welcome to <span>Killer</span> <span>Brawl Stars</span> Official</strong>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel adipisci, quos a voluptatum nobis,
@@ -90,10 +124,127 @@
             <span id="footername">Killer-Brawl Stars</span>
             <span id="divider">|</span>
             <span id="copyright">Copyright © 2022 Killer-Brawl Stars</span>
-            <a href="https://www.youtube.com/channel/UC2Z5yI-XxfaVgnbpr3EMSHA" target="_blank"><i class="fa-brands fa-youtube" id="yt" target="_blank"></i></a>
-            <a href="https://www.linkedin.com/in/code-with-aditya-082085228" target="_blank"><i class="fa-brands fa-linkedin" id="in" target="_blank"></i></a>
+            <a href="https://www.youtube.com/channel/UC2Z5yI-XxfaVgnbpr3EMSHA" target="_blank"><ion-icon name="logo-youtube" id="yt"></ion-icon></a>
+            <a href="https://www.linkedin.com/in/code-with-aditya-082085228" target="_blank"><ion-icon name="logo-linkedin" id="in"></ion-icon></a>
         </div>
     </div>
+
+
+    
+    <script>
+        const navigation=document.querySelector(".navigation");
+        const menutoggle=document.querySelector(".menutoggle");
+        const lists=document.querySelectorAll(".list");
+        const body=document.querySelector('.container');
+        const moonicon=document.querySelector('#dark .icon');
+        const darkli=document.querySelector('#dark');
+        const darktoggle=document.querySelector('.darktoggle');
+        var r = document.querySelector(':root');
+
+        function toggle(navigation){
+            navigation.classList.toggle("open");
+
+        }
+
+        menutoggle.addEventListener('click', ()=>{toggle(navigation)});
+        // body.addEventListener('click', ()=>{toggle(navigation)});
+
+        function active(){
+            lists.forEach((item)=>{
+                item.classList.remove('active');
+                this.classList.add('active');
+            })
+
+            
+        }
+        lists.forEach((item)=>{
+            item.addEventListener('click', active);
+        })
+
+    
+        body.addEventListener('click', ()=>{
+            if (navigation.classList.contains('open')){
+                navigation.classList.remove('open');
+
+            }
+        });
+
+        moonicon.addEventListener('click', ()=>{
+            toggle(darktoggle);
+            toggle(darkli);
+        });
+        darktoggle.addEventListener('click', ()=>{
+            toggle(darktoggle);
+            toggle(darkli);
+        });
+
+
+        if (darkli.classList.contains('open')){
+            r.style.setProperty('--navbg', 'rgb(255, 255, 255)');
+                r.style.setProperty('--body', 'linear-gradient(-45deg,rgb(0, 26, 82),black)');
+                r.style.setProperty('--home', 'linear-gradient(-90deg, rgb(0, 0, 80), black)');
+                r.style.setProperty('--home-p', 'rgb(170, 170, 170)');
+                r.style.setProperty('--home-p-wel', 'white');
+                r.style.setProperty('--video-div1', 'linear-gradient(90deg, black, grey)');
+                r.style.setProperty('--video-div2', 'rgb(83, 83, 83)');
+                r.style.setProperty('--video-div3', 'linear-gradient(90deg, grey, black)');
+                r.style.setProperty('--video-shadow', '0px 0px 15px white');
+                r.style.setProperty('--video-p', 'white');
+                r.style.setProperty('--video-btn', 'white');
+                r.style.setProperty('--headings', 'white');
+                r.style.setProperty('--test-bg', 'rgb(85, 85, 85)');
+                r.style.setProperty('--test-p', 'white');
+                r.style.setProperty('--test-shadow', '0px 0px 15px white');
+                r.style.setProperty('--footer-bg', 'rgb(0, 10, 41)');
+                r.style.setProperty('--footer-name', 'black');
+            }
+
+        function toggleDark() {
+            if (darkli.classList.contains('open')){
+                r.style.setProperty('--navbg', 'white');
+                r.style.setProperty('--body', 'white');
+                r.style.setProperty('--home', 'rgb(200, 200, 200)');
+                r.style.setProperty('--home-p', 'black');
+                r.style.setProperty('--home-p-wel', 'black');
+                r.style.setProperty('--video-div1', 'rgb(255,240, 240)');
+                r.style.setProperty('--video-div2', 'rgb(255,240, 240)');
+                r.style.setProperty('--video-div3', 'rgb(255,240, 240)');
+                r.style.setProperty('--video-shadow', '0px 0px 15px grey');
+                r.style.setProperty('--video-p', 'black');
+                r.style.setProperty('--video-btn', 'black');
+                r.style.setProperty('--headings', 'black');
+                r.style.setProperty('--test-bg', 'rgb(255,240, 240)');
+                r.style.setProperty('--test-p', 'black');
+                r.style.setProperty('--test-shadow', '0px 0px 15px grey');
+                r.style.setProperty('--footer-bg', 'rgb(200, 200, 200)');
+                r.style.setProperty('--footer-name', 'white');
+            }
+            else{
+                r.style.setProperty('--navbg', 'rgb(255, 255, 255)');
+                r.style.setProperty('--body', 'linear-gradient(-45deg,rgb(0, 26, 82),black)');
+                r.style.setProperty('--home', 'linear-gradient(-90deg, rgb(0, 0, 80), black)');
+                r.style.setProperty('--home-p', 'rgb(170, 170, 170)');
+                r.style.setProperty('--home-p-wel', 'white');
+                r.style.setProperty('--video-div1', 'linear-gradient(90deg, black, grey)');
+                r.style.setProperty('--video-div2', 'rgb(83, 83, 83)');
+                r.style.setProperty('--video-div3', 'linear-gradient(90deg, grey, black)');
+                r.style.setProperty('--video-shadow', '0px 0px 15px white');
+                r.style.setProperty('--video-p', 'white');
+                r.style.setProperty('--video-btn', 'white');
+                r.style.setProperty('--headings', 'white');
+                r.style.setProperty('--test-bg', 'rgb(85, 85, 85)');
+                r.style.setProperty('--test-p', 'white');
+                r.style.setProperty('--test-shadow', '0px 0px 15px white');
+                r.style.setProperty('--footer-bg', 'rgb(0, 10, 41)');
+                r.style.setProperty('--footer-name', 'black');
+            }
+        }
+
+
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
 </body>
 
 </html>

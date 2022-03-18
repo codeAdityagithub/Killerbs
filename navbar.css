@@ -1,0 +1,218 @@
+:root{
+    --navbg:rgb(255, 255, 255);
+    --togglebgclr:rgb(2, 100, 139);
+    --toggle_line:white;
+    --navlink:black;
+    --icon:black;
+    --act_icon:white;
+    --dark:rgb(0, 4, 27);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+.navigation{
+    overflow: hidden;
+    position: fixed;
+    left: 10px;
+    top: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--navbg);
+    border-radius: 5px;
+    transition: 0.4s;
+    z-index: 20;
+    /* border-bottom-right-radius: 50%; */
+}
+
+#killer span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0px 0px 20px 15px;
+}
+
+#killer span p{
+    padding-left: 10px;
+    user-select: none;
+}
+
+.navigation .menutoggle{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    /* border-bottom: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: var(--togglebgclr);
+}
+
+.menutoggle::before{
+    content: '';
+    width: 30px;
+    height: 1px;
+    background-color: var(--toggle_line);
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    transition: 0.5s;
+}
+.menutoggle::after{
+    content: '';
+    width: 30px;
+    height: 1px;
+    background-color: var(--toggle_line);
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    box-shadow: 0px -10px  0px var(--toggle_line);
+    transition: 0.5s;
+}
+.navigation.open{
+    width: 250px;
+    height: 90%;
+}
+.navigation.open .menutoggle::before{
+    transform: translateY(10px) rotate(45deg);
+}
+.navigation.open .menutoggle::after{
+    transform: translateY(-10px) rotate(-45deg);
+    box-shadow: 0px 0px  0px var(--toggle_line);
+}
+
+.navigation ul{
+    display: none;
+    align-items:flex-start;
+    justify-content:center;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    width: 100%;
+    
+}
+.navigation.open ul{
+    display: flex;
+}
+.list{
+    margin-left: 5px;
+    padding:5px 0px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    cursor: pointer;
+}
+.navigation .navlink{
+    display: none;
+    margin-left: 10px;
+    transition: 0.5s;
+    text-decoration: none;
+    /* line-height: 60px; */
+    font-size: 1.1rem;
+    color: var(--navlink);
+    transition: 0.5s;
+    transition-property: display transform;
+}
+.navigation ul li span{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+}
+
+.navigation.open .navlink{
+    display: block;
+}
+
+.icon{
+    font-size: 2rem;
+    font-weight: 400;
+    transition: 0.5s;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    color: var(--icon);
+    
+}
+.icon a{
+    text-decoration: none;
+    color: var(--icon);
+}
+.list.active .icon::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr);
+    border-radius: 10px;
+    filter: blur(5px);
+}
+
+.navigation .list.active .icon{
+    background-color: var(--clr);
+    color: var(--act_icon);
+    transform:translateX(20px);
+}
+.navigation .list.active .icon a{
+    color: var(--act_icon);
+}
+
+.navigation.open .list.active .icon{
+    transform:translateX(10px);
+}
+.navigation.open .list.active .navlink{
+    transform:translateX(10px);
+}
+
+#dark{
+ margin-left: 7px;
+ display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+}
+#dark .icon{
+    background-color: none;
+}
+#dark.open .icon{
+    background-color: var(--dark);
+    color: white;
+    text-shadow: 0px 0px 10px white;
+    box-shadow: 0px 0px 10px var(--dark);
+}
+
+.darktoggle{
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(103, 103, 104);
+    border-radius: 20px;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.74),
+     inset -2px -2px 4px rgba(0, 0, 0, 0.767) 
+    ;
+    margin-left: 5px;
+}
+.darktoggle span{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: white;
+    transform: translateX(-15px);
+    transition: 0.4s;
+    
+}
+.darktoggle.open span{
+    transform: translateX(15px);
+    background-color: rgb(0, 4, 27);
+}
